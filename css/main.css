@@ -4,8 +4,20 @@
 }
 
 #frame {
-	width: 760px;
-	height: 1020px;
+	width: 768px;
+	height: 1024px;
+	
+}
+
+#frame.p1 {
+	background-image: url(../imgs/bottom_layer.jpg);
+}
+
+#frame.p1 img {
+	margin-top: 180px;
+}
+
+#frame.p2 {
 	background-image: url(../imgs/page_2_bg.jpg);
 }
 
@@ -13,7 +25,7 @@
 {
     margin-top: 680px;
 	height: 80px;
-	width: 760px;
+	width: 768px;
 	white-space: nowrap;
 	overflow: hidden;
 }
@@ -35,7 +47,8 @@ a.prev > img
 
 a.next > img
 {
-	relative: absolute;
+	position: relative;
 	top: 360px;
-	right: 0;
+	/* right: -650px; */
+	float: right;
 }
