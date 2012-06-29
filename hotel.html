@@ -5,6 +5,9 @@
 <title>delta &raquo; hotels</title>
 <link href="css/cssreset-min.css" rel="stylesheet" type="text/css">
 <link href="css/main.css" rel="stylesheet" type="text/css">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content = "width = device-width, initial-scale = 1, user-scalable = no" />
+<meta name="viewport" content = "width = device-width, initial-scale = 1, minimum-scale = 1, maximum-scale = 5" />
 </head>
 <body>
 
@@ -27,9 +30,11 @@
 <script src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script>
 <script src="js/dest.js"></script>
 <script>
-var destsrc = document.location.search.match(/^\?src=.+\/(\d+)_.+$/);
+var uhoh = [null, 'http://farm3.staticflickr.com/2166/1578557328_5cc0c58876.jpg', '1578557328'],
+    uris = document.location.search.match(/^\?src=(http.+\/(\d+)_.+)$/) || uhoh,        
+    destsrc = uris[1];
 
-fetchLocation((destsrc || [null, 3934476238])[1]);
+fetchLocation(uris[2]);
 </script>
 </body>
 </html>

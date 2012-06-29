@@ -26,7 +26,7 @@ function getThumbs(pics) {
 };
 
 function renderThumbs(pics) {
-    YUI().use('handlebars', 'node-base', function(Y) {
+    YUI().use('handlebars', 'node-base', function (Y) {
         var tmpl = Y.one('#items-hb').getHTML(),
             hand = Y.Handlebars.compile(tmpl),
             out = hand({squares: pics});
@@ -35,6 +35,12 @@ function renderThumbs(pics) {
         Y.one('div.foo p').set('innerHTML', 'Select a picture')
     });
 }
+
+// function setSwipe() {
+// 	YUI().use('node-base', 'node-event-delegate','event-move', function (Y) {
+// 		Y.one('#frame').on('gesturemoveend', )
+// 	});
+// }
 
 function scrollView() {
     YUI().use('scrollview', function(Y) {
@@ -67,23 +73,22 @@ function destinationClicks() {
 }
 
 function hotelClicks() {
-    YUI().use('node-event-delegate', function (Y) {
+    YUI().use('node-event-delegate', 'querystring-stringify', function (Y) {
 
         Y.one('#thumbs').delegate('click', function() {
             var src = this.get('src'),
                 dest = encodeURI(src),
                 hotel = this.get('alt')
-                link = [
-                    'done.html',
-                    '?town=', encodeURI(town),
-                    '&country=', encodeURI(country),
-                    '&hotel=', encodeURI(hotel),
-                    '&hotelsrc=', encodeURI(src),
-                    '&destsrc=', encodeURI(destsrc)
-                ].join('');
+                link = Y.QueryString.stringify({
+                        'town': town,
+                        'country': country,
+                        'hotel': hotel,
+                        'hotelsrc': src,
+                        'destsrc': destsrc                
+                    });
 
             console.log(link);
-            Y.one('a.next').set('href', link);
+            Y.one('a.next').set('href', 'done.html?' + link);
             Y.one('div.foo').set('innerHTML', '<img src="' + src + '" alt="' + hotel + '">');
 
         }, 'img');
@@ -91,6 +96,17 @@ function hotelClicks() {
     });
 }
 
+function doneDomUpdate(qrystr) {
+	YUI().use('node-base', 'querystring-parse', function (Y) {
+		var params = Y.QueryString.parse(qrystr ? qrystr.slice(1) : '');
+		console.log(params);
+		
+		Y.one('#towncountry').set('innerHTML', params.town + ', ' + params.country);
+		Y.one('#hotel').set('innerHTML', params.hotel);
+		Y.one('#destsrc').set('src', params.destsrc);
+		Y.one('#hotelsrc').set('src', params.hotelsrc);
+	});
+}
 
 var town = 'Amsterdam',
     country = 'Netherlands';

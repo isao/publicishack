@@ -2,33 +2,127 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>delta p2</title>
+<title>delta &raquo; book it</title>
 <link href="css/cssreset-min.css" rel="stylesheet" type="text/css">
 <link href="css/main.css" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=PT+Sans|Lusitana' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.5.1/build/cssgrids/cssgrids-min.css">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content = "width = device-width, initial-scale = 1, user-scalable = no" />
+<meta name="viewport" content = "width = device-width, initial-scale = 1, minimum-scale = 1, maximum-scale = 5" />
+<style>
+  .subheading {
+    font-family: 'PT Sans', serif;
+    font-size: 18px;
+    color: #cccccc;
+    text-shadow: 0px -2px 0px #000000;
+    padding-bottom: 5px;
+  }
+
+  .desttitle {
+    font-family: 'Lusitana', serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: #ffffff;
+    text-shadow: 0px -2px 0px #000000;
+  }
+
+  .desthotel {
+    font-size: 20px;
+    color: #dddddd;
+    margin-bottom: 20px;
+  }
+
+  .sectiontitle {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .imgfill {
+    width: 100%;
+    height: auto;
+    max-height: 180px;
+background:rgba(200,200,200,0.05);
+  -webkit-box-shadow: 0 2px 0 rgba(255,255,255,.2), inset 0 4px 5px rgba(0,0,0,.6), inset 0 2px 0 rgba(0,0,0,.6);
+  -moz-box-shadow: 0 2px 0 rgba(255,255,255,.2), inset 0 4px 5px rgba(0,0,0,.6), inset 0 2px 0 rgba(0,0,0,.6);
+   box-shadow: 0 2px 0 rgba(255,255,255,.2), inset 0 4px 5px rgba(0,0,0,.6), inset 0 2px 0 rgba(0,0,0,.6);
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  -ms-border-radius:10px;
+  -o-border-radius:10px;
+  border-radius:10px;
+  display: block;
+  }
+
+  .pluscontainer {
+  }
+
+  .plus {
+    position: absolute;
+    top: 45%;
+    left: 50%;    
+  }
+
+  .plusimg {
+    width: 45px;
+    height: 45px;
+    margin-left: -22px;
+    margin-top: -22px;
+  }
+
+  .yui3-calendar-weekday {
+    text-align: center;
+  }
+
+  .yui3-calendar {
+     font-family: 'PT Sans', serif;
+     font-size: 16px;   
+  }
+
+  .buttoncontainter {
+    width: 100%;
+  }
+
+</style>
 </head>
 <body>
 
 <div id="frame" class="p4">
   <div class="foo2">
-        <div class="dest-title">Tahiti - French Polynesia</div>
-        <div class="dest-title">Hotel Name</div>
-        <br>
-        <img src="imgs/temp_thumb.png">
-        <img src="imgs/page_4_plus_sign.png">
-        <img src="imgs/temp_thumb.png">
+        <span class="subheading">You have selected...</span>
+        <div id="towncountry" class="desttitle"><!-- town country --></div>
+        <div id="hotel" class="desttitle desthotel"><!-- hotel --></div>
+        <div class="yui3-g">
+        <div class="yui3-u-5-12">
+           <img id="destsrc" class="imgfill" src="imgs/temp_thumb.png">
+        </div>
+        <div class="yui3-u-1-6">
+          <div class="pluscontainer">
+          <div class="plus">
+           <img src="imgs/page_4_plus_sign.png" class="plusimg">
+          </div>
+          </div>
+        </div>
+        <div class="yui3-u-5-12">
+           <img id="hotelsrc" class="imgfill" src="imgs/temp_thumb.png">
+        </div>
+        </div>
+        <div class="subheading sectiontitle">Departing from:</div>
+        <input class="depart-from-input" style="width:675px;height:20px;color:#333333;" type="text" value="ex: San Francisco">
 
-        <div class="section-title">departing from:</div>
-        <input class="depart-from-input" type="text" value="ex: San Francisco">
-        <div class="section-title">on the:</div>
         <div class="yui3-skin-sam yui3-g">
-            <div id="depart-calendar" style="font-family:Arial" ></div>
+            <div class="yui3-u-1-2">
+               <div class="subheading sectiontitle">On the:</div>
+               <div id="depart-calendar" style="font-family:Arial" ></div>
+            </div>
+            <div class="yui3-u-1-2">
+               <div class="subheading sectiontitle">Returning on the:</div>
+               <div id="return-calendar" style="font-family:Arial" ></div>
+            </div>
         </div>
-        <div class="section-title">returning on the:</div>
-        <div class="yui3-skin-sam yui3-g">
-            <div id="return-calendar" style="font-family:Arial" ></div>
-        </div>
+
         <br><br>
-        <button style="background-color: #000022; height: 50px; color: #dddddd; font-size: 20px;" class="yui3-button">Book This Trip</button>
+        <button style="margin:auto; background-color: #000022; height: 50px; color: #dddddd; font-size: 20px;" class="yui3-button">Book This Trip</button>
       </div>
     </div>
 <!--    <a href="index.html" class="prev"><img src="imgs/arrow_left.png" width="74" height="179" alt="go back"></a>-->
@@ -36,6 +130,7 @@
 </div>
 
 <script src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script>
+<script src="js/dest.js"></script>
 <script type="text/javascript">
 YUI().use('calendar', 'datatype-date', 'cssbutton',  function(Y) {
 
@@ -54,6 +149,9 @@ YUI().use('calendar', 'datatype-date', 'cssbutton',  function(Y) {
       date: new Date()}).render();
 
 });
+
+doneDomUpdate(document.location.search);
+
 </script>
 </body>
 </html>
