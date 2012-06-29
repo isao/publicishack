@@ -9,13 +9,11 @@
 <body>
 
 <div id="frame" class="p3">
-    <div class="foo">
-    
-    </div>
+    <div class="foo"><p>Loading...</p></div>
     <a href="destination.html" class="prev"><img src="imgs/arrow_left.png" width="74" height="179" alt="go back"></a>
     <a href="done.html" class="next"><img src="imgs/arrow_right.png" width="74" height="179" alt="go fwd"></a>
     <div id="thumbwrap">
-        <div id="thumbs" class="yui3-scrollview-loading"><!-- items-hb --></div>
+        <div id="thumbs" class="yui3-scrollview-loading"><p>Loading...</p></div>
     </div>
 </div>
 
@@ -29,10 +27,10 @@
 <script src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script>
 <script src="js/dest.js"></script>
 <script>
-var file = document.location.search.match(/^\?src=(.+)$/)[1];
+var file = (document.location.search.match(/^\?src=.+\/(\d+)_.+$/) ||
+    [null, 3934476238])[1];
 
 fetchLocation(file);
-
 </script>
 </body>
 </html>

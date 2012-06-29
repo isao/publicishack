@@ -31,7 +31,8 @@ function renderThumbs(pics) {
             hand = Y.Handlebars.compile(tmpl),
             out = hand({squares: pics});
 
-        Y.one("#thumbs").setHTML(out);
+        Y.one('#thumbs').setHTML(out);
+        Y.one('div.foo p').set('innerHTML', 'Select a picture')
     });
 }
 
@@ -59,26 +60,27 @@ function thumbClicks() {
         Y.one('#thumbs').delegate('click', function() {
             var src = this.get('src');
             Y.one('a.next').set('href', 'hotel.html?src=' + encodeURI(src));
-            Y.one('div.foo').set('innerHTML', '<img src=' + src + ' width="670" height="455">');
+            Y.one('div.foo').set('innerHTML', '<img src="' + src + '">');
         }, 'img');
 
     });
 }
 
-function fetchLocation(file) {
+function fetchLocation(id) {
+
+    function locationCb(r) {    	
+        console.log('location', r);
+        var town = r.query.results.photo.location.locality.content,
+            country = r.query.results.photo.location.country.content;
+
+        fetchHotels(town, country);
+    }
+
     YUI().use('yql', function (Y) {
-        var qry = 'select * from flickr.photos.info where photo_id=@file and api_key=@apikey';
-        Y.YQL(qry, function(r) {
-            console.log(r);
-            var town = r.query.results.photo.location.locality.content,
-                country = r.query.results.photo.location.country.content;
-
-            fetchHotels(town, country);
-
-        }, {
-            file: file.split('_')[0],
-            apikey: '5b7b21a3d44ed659e13410edee783a3b',
-            debug:1
+        var qry = 'select * from flickr.photos.info where photo_id=@id and api_key=@apikey';
+        Y.YQL(qry, locationCb, {
+            id: id,
+            apikey: '5b7b21a3d44ed659e13410edee783a3b'
         });
     });
 }
@@ -86,10 +88,11 @@ function fetchLocation(file) {
 function fetchHotels(town, country) {
         console.log(town+", "+country);
         var tc = encodeURIComponent(town+", "+country),
-            qry = 'select * from html where url="http://nodeunblocker.com/proxy/http://www.tripadvisor.com/Search?q='+tc+'" and xpath = "//div[@class=\'sizedThumb\']/img"';
+            qry = 'select * from html where url="http://nodeunblocker.com/proxy/http://www.tripadvisor.com/Search?q='+tc+'" and xpath = "//div[@class=\'sizedThumb\']/img"',
+            pics = [];
 
-        Y.YQL(qry, function(r) {
-            //console.log(r.query.results.img);
+        function hotelsCb(r) {
+            console.log('hotelsCb', r.query.results.img);
             for (var x=0;x<r.query.results.img.length;x++) {
                 hotel = r.query.results.img[x].alt;
                 var imgsrc = r.query.results.img[x].src;
@@ -101,8 +104,15 @@ function fetchHotels(town, country) {
                 } else if (imgsrc.indexOf("photo-t") > -1) {
                     imgsrc = imgsrc.replace("photo-t","photo-s");
                 }
+                
+                pics.push({source: imgsrc, alt: hotel});
                 console.log(hotel);
                 console.log(imgsrc);
             }
+            renderThumbs(pics);
+        }
+
+        YUI().use('yql', function (Y) {
+        	Y.YQL(qry, hotelsCb);
         });
     }

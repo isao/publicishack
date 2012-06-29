@@ -37,12 +37,15 @@ div.foo {
     overflow: hidden;
 }
 
-/*
+div.foo p {
+    color: #E6E6E6;
+    margin: 165px 300px;
+}
+
 div.foo img {
     width: 110%;
     height: 110%;
 }
-*/
 
 div.foo2 {
     /* margin-top: 290px; */
@@ -72,8 +75,13 @@ div.foo2 {
 }
 
 #thumbwrap ul li img {
-    height: 75px;
-    width: 75px;
+    height: 140px;
+    width: 140px;
+}
+
+#thumbs p {
+    color: #E6E6E6;
+    margin: auto 350px;
 }
 
 a.prev > img {
