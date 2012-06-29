@@ -32,7 +32,8 @@ function renderThumbs(pics) {
             out = hand({squares: pics});
 
         Y.one('#thumbs').setHTML(out);
-        Y.one('div.foo p').set('innerHTML', 'Select a picture')
+        Y.one('div.foo').set('innerHTML', '<img src="' + pics[0].source + '">');
+        //Y.one('div.foo p').set('innerHTML', 'Select a picture');
     });
 }
 
