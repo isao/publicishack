@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>delta</title>
-<link href="http://yui.yahooapis.com/3.5.1/build/cssreset/cssreset-min.css" rel="stylesheet" type="text/css">
-<link href="css/main.css" rel="stylesheet">
+<title>delta p2</title>
+<link href="css/cssreset-min.css" rel="stylesheet" type="text/css">
+<link href="css/main.css" rel="stylesheet" type="text/css">
 <script src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script>
 </head>
 <body>
 
-<div id="frame">
-    ohhai!
-    <a href="" class="prev"><img src="imgs/arrow_left.png" width="74" height="179" alt="go back"></a>
+<div id="frame" class="p2">
+    
+    <a href="index.html" class="prev"><img src="imgs/arrow_left.png" width="74" height="179" alt="go back"></a>
     <a href="" class="next"><img src="imgs/arrow_right.png" width="74" height="179" alt="go fwd"></a>
     <div id="thumbwrap">
         <div id="thumbs" class="yui3-scrollview-loading">
@@ -67,15 +67,15 @@ YUI().use('scrollview', function(Y) {
             id: 'yui-sv',
             srcNode: '#thumbs',
             width: 1020,
-            flick: {axis: 'x', minDistance: 10, minVelocity: 0.3,}
+            flick: {axis: 'x', minDistance: 12, minVelocity: 0.3,}
         });
 
     sv.render();
 
-    /*// Prevent default image drag behavior
+    // Prevent default image drag behavior
     sv.get('contentBox').delegate('mousedown', function(e) {
         e.preventDefault();
-    }, 'img');*/
+    }, 'img');
 });
 </script>
 <script id="items-hb" type="text/html">
