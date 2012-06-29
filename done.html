@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>delta p2</title>
+<link href="css/cssreset-min.css" rel="stylesheet" type="text/css">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="frame" class="p4">
+  <div class="foo2">
+    	<div class="section-title">You have selected:</div>    
+    	<div class="dest-title">Tahiti - French Polynesia</div>    
+    	<div class="hotel-title">Hotel Fuckoff</div>    
+    	<div class="section-title">departing from:</div>  
+  		<input class="depart-from-input">
+    	<div class="section-title">on the:</div>    
+	    <div class="yui3-skin-sam yui3-g">
+			<div id="depart-calendar"></div>
+		</div>	
+    	<div class="section-title">returning on the:</div>
+    	<div class="yui3-skin-sam yui3-g">
+	    	<div id="return-calendar"></div>
+		</div>
+	  </div>
+    </div>
+<!--    <a href="index.html" class="prev"><img src="imgs/arrow_left.png" width="74" height="179" alt="go back"></a>-->
+   
+</div>
+
+<script src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script>
+<script type="text/javascript">
+YUI().use('calendar', 'datatype-date', 'cssbutton',  function(Y) {
+        
+    var departCalendar = new Y.Calendar({
+      contentBox: "#depart-calendar",
+      width:'340px',
+      showPrevMonth: true,
+      showNextMonth: true,
+      date: new Date()}).render();
+ 
+   	var returnCalendar = new Y.Calendar({
+      contentBox: "#return-calendar",
+      width:'340px',
+      showPrevMonth: true,
+      showNextMonth: true,
+      date: new Date()}).render();
+   
+    // Get a reference to Y.DataType.Date
+    //var dtdate = Y.DataType.Date;
+
+    // Listen to calendar's selectionChange event.
+    //departCalendar.on("selectionChange", function (ev) {
+
+      // Get the date from the list of selected
+      // dates returned with the event (since only
+      // single selection is enabled by default,
+      // we expect there to be only one date)
+      //var newDate = ev.newSelection[0];
+
+      // Format the date and output it to a DOM
+      // element.
+      //Y.one("#selecteddate").setHTML(dtdate.format(newDate));
+    //});
+
+});
+</script>
+</body>
+</html>

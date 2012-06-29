@@ -20,8 +20,8 @@
 	background-image: url(../imgs/page_3_bg.jpg);
 }
 
-#frame.p3 {
-	background-image: url(../imgs/page_4_bg.jpg);
+#frame.p4 {
+	background-image: url(../imgs/page_3_bg.jpg);
 }
 
 div.foo {
@@ -34,6 +34,17 @@ div.foo {
     height: 455px;
     width: 670px;
     border: 12px solid #E6E6E6;
+}
+
+div.foo2 {
+    /* margin-top: 290px; */
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 290px;
+    left: 38px;
+    height: 455px;
+    width: 670px;
 }
 
 #thumbwrap {
@@ -52,6 +63,11 @@ div.foo {
 	*zoom: 1;
 }
 
+#thumbwrap ul li img {
+	height: 75px;
+	width: 75px;
+}
+
 a.prev > img {
 	position: absolute;
 	top: 390px;
@@ -64,3 +80,11 @@ a.next > img {
 	/* right: -650px; */
 	float: right;
 }
+
+div.section-title {
+	color:#FFFFFF;
+	font-family:Arial;
+	font-size:18px;
+	font-weight:bold;
+}
+
