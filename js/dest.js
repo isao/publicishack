@@ -53,7 +53,7 @@ function thumbClicks() {
             var src = this.get('src'),
                 file = encodeURI(src);//.replace(/^.*[\\\/]/, '');
             
-            Y.one('a.next').set('src', 'hotel.html?file=' + file);
+            Y.one('a.next').set('href', 'hotel.html?file=' + file);
             Y.one('div.foo').set('innerHTML', '<img src=' + src + ' width="670" height="455">');
             
         }, 'img');
