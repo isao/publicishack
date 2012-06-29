@@ -1,27 +1,27 @@
 #frame {
-	float: left;
-	width: 768px;
-	height: 1024px;
+    float: left;
+    width: 768px;
+    height: 1024px;
 }
 
 #frame.p1 {
-	background-image: url(../imgs/bottom_layer.jpg);
+    background-image: url(../imgs/bottom_layer.jpg);
 }
 
 #frame.p1 img {
-	margin-top: 180px;
+    margin-top: 180px;
 }
 
 #frame.p2 {
-	background-image: url(../imgs/page_2_bg.jpg);
+    background-image: url(../imgs/page_2_bg.jpg);
 }
 
 #frame.p3 {
-	background-image: url(../imgs/page_3_bg.jpg);
+    background-image: url(../imgs/page_3_bg.jpg);
 }
 
 #frame.p4 {
-	background-image: url(../imgs/page_4_bg.jpg);
+    background-image: url(../imgs/page_4_bg.jpg);
 }
 
 div.foo {
@@ -34,7 +34,15 @@ div.foo {
     height: 455px;
     width: 670px;
     border: 12px solid #E6E6E6;
+    overflow: hidden;
 }
+
+/*
+div.foo img {
+    width: 110%;
+    height: 110%;
+}
+*/
 
 div.foo2 {
     /* margin-top: 290px; */
@@ -48,59 +56,59 @@ div.foo2 {
 }
 
 #thumbwrap {
-	height: 80px;
-	width: 768px;
-	margin-top: 800px;
-	white-space: nowrap;
-	overflow: hidden;
+    height: 80px;
+    width: 768px;
+    margin-top: 800px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 #thumbwrap ul li {
-	margin: 6px;
-	list-style: none;
-	display: inline-block;
-	*display: inline;
-	*zoom: 1;
+    margin: 6px;
+    list-style: none;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
 }
 
 #thumbwrap ul li img {
-	height: 75px;
-	width: 75px;
+    height: 75px;
+    width: 75px;
 }
 
 a.prev > img {
-	position: absolute;
-	top: 390px;
-	left: 0;
+    position: absolute;
+    top: 390px;
+    left: 0;
 }
 
 a.next > img {
-	position: relative;
-	top: 390px;
-	/* right: -650px; */
-	float: right;
+    position: relative;
+    top: 390px;
+    /* right: -650px; */
+    float: right;
 }
 
 div.section-title {
-	padding-top: 12px;
-	padding-bottom: 4px;
-	color:#FFFFFF;
-	font-family:Arial;
-	font-size:18px;
-	font-weight:bold;
+    padding-top: 12px;
+    padding-bottom: 4px;
+    color:#FFFFFF;
+    font-family:Arial;
+    font-size:18px;
+    font-weight:bold;
 }
 
 
 div.dest-title {
-	padding-top: 8px;
-	color:#569be8;
-	font-family:Arial;
-	font-size:20px;
+    padding-top: 8px;
+    color:#569be8;
+    font-family:Arial;
+    font-size:20px;
 }
 
 input.depart-from-input {
-	padding: 4px;
-	border-radius: 4px;
-	color:#CCC;
-	font-family:Arial;
+    padding: 4px;
+    border-radius: 4px;
+    color:#CCC;
+    font-family:Arial;
 }
