@@ -3,7 +3,7 @@ function getThumbs(pics) {
     function destinationsCb(yqlresp) {
         renderThumbs(yqlresp.query.results.size);
         scrollView();
-        thumbClicks();
+        destinationClicks();
     }
 
     YUI().use('yql', function (Y) {
@@ -18,7 +18,7 @@ function getThumbs(pics) {
             // for testing cause real pics take a while to load
             renderThumbs(pics);
             scrollView();
-            thumbClicks();
+            destinationClicks();
         } else {
             Y.YQL(qry, destinationsCb, param);
         }
@@ -54,7 +54,7 @@ function scrollView() {
     });
 }
 
-function thumbClicks() {
+function destinationClicks() {
     YUI().use('node-event-delegate', function (Y) {
 
         Y.one('#thumbs').delegate('click', function() {
@@ -66,13 +66,32 @@ function thumbClicks() {
     });
 }
 
+function hotelClicks() {
+    YUI().use('node-event-delegate', function (Y) {
+
+        Y.one('#thumbs').delegate('click', function() {
+            var src = this.get('src'),
+                dest = encodeURI(src),
+                hotel = this.get('alt');
+
+            Y.one('a.next').set('href', 'done.html?town=' + encodeURI(town) + '&country=' + encodeURI(country) + '&hotel=' + encodeURI(hotel));
+            Y.one('div.foo').set('innerHTML', '<img src="' + src + '" alt="' + hotel + '">');
+
+        }, 'img');
+
+    });
+}
+
+
+var town = 'Amsterdam',
+    country = 'Netherlands';
+
 function fetchLocation(id) {
 
-    function locationCb(r) {    	
+    function locationCb(r) {
         console.log('location', r);
-        var town = r.query.results.photo.location.locality.content,
-            country = r.query.results.photo.location.country.content;
-
+        town = r.query.results.photo.location.locality.content;
+        country = r.query.results.photo.location.country.content;
         fetchHotels(town, country);
     }
 
@@ -97,22 +116,24 @@ function fetchHotels(town, country) {
                 hotel = r.query.results.img[x].alt;
                 var imgsrc = r.query.results.img[x].src;
                 imgsrc = "http://"+imgsrc.split("http://")[2];
- 
+
                 if (imgsrc.indexOf("ProviderThumbnails") > -1) {
                     imgsrc = imgsrc.substr(0,imgsrc.indexOf(".jpg"));
                     imgsrc = imgsrc + "large.jpg";
                 } else if (imgsrc.indexOf("photo-t") > -1) {
                     imgsrc = imgsrc.replace("photo-t","photo-s");
                 }
-                
+
                 pics.push({source: imgsrc, alt: hotel});
                 console.log(hotel);
                 console.log(imgsrc);
             }
             renderThumbs(pics);
+            scrollView();
+            hotelClicks();
         }
 
         YUI().use('yql', function (Y) {
-        	Y.YQL(qry, hotelsCb);
+            Y.YQL(qry, hotelsCb);
         });
     }
