@@ -72,9 +72,18 @@ function hotelClicks() {
         Y.one('#thumbs').delegate('click', function() {
             var src = this.get('src'),
                 dest = encodeURI(src),
-                hotel = this.get('alt');
+                hotel = this.get('alt')
+                link = [
+                    'done.html',
+                    '?town=', encodeURI(town),
+                    '&country=', encodeURI(country),
+                    '&hotel=', encodeURI(hotel),
+                    '&hotelsrc=', encodeURI(src),
+                    '&destsrc=', encodeURI(destsrc)
+                ].join('');
 
-            Y.one('a.next').set('href', 'done.html?town=' + encodeURI(town) + '&country=' + encodeURI(country) + '&hotel=' + encodeURI(hotel));
+            console.log(link);
+            Y.one('a.next').set('href', link);
             Y.one('div.foo').set('innerHTML', '<img src="' + src + '" alt="' + hotel + '">');
 
         }, 'img');
