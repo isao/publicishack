@@ -16,6 +16,14 @@
 	background-image: url(../imgs/page_2_bg.jpg);
 }
 
+#frame.p3 {
+	background-image: url(../imgs/page_3_bg.jpg);
+}
+
+#frame.p3 {
+	background-image: url(../imgs/page_4_bg.jpg);
+}
+
 div.foo {
     /* margin-top: 290px; */
     margin-left: auto;
