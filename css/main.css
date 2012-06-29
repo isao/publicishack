@@ -1,0 +1,41 @@
+#frame, #thumbwrap
+{
+	float: left;
+}
+
+#frame {
+	width: 760px;
+	height: 1020px;
+	background-image: url(../imgs/page_2_bg.jpg);
+}
+
+#thumbwrap
+{
+    margin-top: 680px;
+	height: 80px;
+	width: 760px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+#thumbwrap ul li {
+    margin: 6px;
+    list-style: none;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+a.prev > img
+{
+	position: absolute;
+	top: 360px;
+	left: 0;
+}
+
+a.next > img
+{
+	relative: absolute;
+	top: 360px;
+	right: 0;
+}
