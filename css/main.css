@@ -1,12 +1,7 @@
-#frame, #thumbwrap
-{
-	float: left;
-}
-
 #frame {
+	float: left;
 	width: 768px;
 	height: 1024px;
-	
 }
 
 #frame.p1 {
@@ -21,34 +16,43 @@
 	background-image: url(../imgs/page_2_bg.jpg);
 }
 
-#thumbwrap
-{
-    margin-top: 680px;
+div.foo {
+    /* margin-top: 290px; */
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 290px;
+    left: 38px;
+    height: 455px;
+    width: 670px;
+    border: 12px solid #E6E6E6;
+}
+
+#thumbwrap {
 	height: 80px;
 	width: 768px;
+	margin-top: 800px;
 	white-space: nowrap;
 	overflow: hidden;
 }
 
 #thumbwrap ul li {
-    margin: 6px;
-    list-style: none;
-    display: inline-block;
-    *display: inline;
-    *zoom: 1;
+	margin: 6px;
+	list-style: none;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
 }
 
-a.prev > img
-{
+a.prev > img {
 	position: absolute;
-	top: 360px;
+	top: 390px;
 	left: 0;
 }
 
-a.next > img
-{
+a.next > img {
 	position: relative;
-	top: 360px;
+	top: 390px;
 	/* right: -650px; */
 	float: right;
 }
