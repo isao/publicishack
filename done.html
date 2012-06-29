@@ -10,19 +10,25 @@
 
 <div id="frame" class="p4">
   <div class="foo2">
-    	<div class="section-title">You have selected:</div>    
     	<div class="dest-title">Tahiti - French Polynesia</div>    
-    	<div class="hotel-title">Hotel Fuckoff</div>    
+    	<div class="dest-title">Hotel Fuckoff</div>    
+<br>
+		<img src="imgs/temp_thumb.png">
+		<img src="imgs/page_4_plus_sign.png">
+		<img src="imgs/temp_thumb.png">
+		
     	<div class="section-title">departing from:</div>  
-  		<input class="depart-from-input">
+  		<input class="depart-from-input" type="text" value="ex: San Francisco">
     	<div class="section-title">on the:</div>    
 	    <div class="yui3-skin-sam yui3-g">
-			<div id="depart-calendar"></div>
+			<div id="depart-calendar" style="font-family:Arial" ></div>
 		</div>	
     	<div class="section-title">returning on the:</div>
     	<div class="yui3-skin-sam yui3-g">
-	    	<div id="return-calendar"></div>
+	    	<div id="return-calendar" style="font-family:Arial" ></div>
 		</div>
+		<br><br>
+		<img src="imgs/page_4_button.png">
 	  </div>
     </div>
 <!--    <a href="index.html" class="prev"><img src="imgs/arrow_left.png" width="74" height="179" alt="go back"></a>-->
@@ -46,23 +52,6 @@ YUI().use('calendar', 'datatype-date', 'cssbutton',  function(Y) {
       showPrevMonth: true,
       showNextMonth: true,
       date: new Date()}).render();
-   
-    // Get a reference to Y.DataType.Date
-    //var dtdate = Y.DataType.Date;
-
-    // Listen to calendar's selectionChange event.
-    //departCalendar.on("selectionChange", function (ev) {
-
-      // Get the date from the list of selected
-      // dates returned with the event (since only
-      // single selection is enabled by default,
-      // we expect there to be only one date)
-      //var newDate = ev.newSelection[0];
-
-      // Format the date and output it to a DOM
-      // element.
-      //Y.one("#selecteddate").setHTML(dtdate.format(newDate));
-    //});
 
 });
 </script>

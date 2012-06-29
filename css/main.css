@@ -21,7 +21,7 @@
 }
 
 #frame.p4 {
-	background-image: url(../imgs/page_3_bg.jpg);
+	background-image: url(../imgs/page_4_bg.jpg);
 }
 
 div.foo {
@@ -41,8 +41,8 @@ div.foo2 {
     margin-left: auto;
     margin-right: auto;
     position: absolute;
-    top: 290px;
-    left: 38px;
+    top: 150px;
+    left: 48px;
     height: 455px;
     width: 670px;
 }
@@ -82,9 +82,25 @@ a.next > img {
 }
 
 div.section-title {
+	padding-top: 12px;
+	padding-bottom: 4px;
 	color:#FFFFFF;
 	font-family:Arial;
 	font-size:18px;
 	font-weight:bold;
 }
 
+
+div.dest-title {
+	padding-top: 8px;
+	color:#569be8;
+	font-family:Arial;
+	font-size:20px;
+}
+
+input.depart-from-input {
+	padding: 4px;
+	border-radius: 4px;
+	color:#CCC;
+	font-family:Arial;
+}

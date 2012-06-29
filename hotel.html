@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>delta &raquo; hotels</title>
+<link href="css/cssreset-min.css" rel="stylesheet" type="text/css">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="frame" class="p2">
+    <div class="foo">
+    
+    </div>
+    <a href="destination.html" class="prev"><img src="imgs/arrow_left.png" width="74" height="179" alt="go back"></a>
+    <a href="done.html" class="next"><img src="imgs/arrow_right.png" width="74" height="179" alt="go fwd"></a>
+    <div id="thumbwrap">
+        <div id="thumbs" class="yui3-scrollview-loading"><!-- items-hb --></div>
+    </div>
+</div>
+
+<script id="items-hb" type="text/html">
+    <ul>
+        {{#squares}}
+        <li><img src="{{source}}"></li>
+        {{/squares}}
+    </ul>
+</script>
+<script src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script>
+<script src="js/dest.js"></script>
+<script>
+
+getThumbs();
+</script>
+</body>
+</html>
