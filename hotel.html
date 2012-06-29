@@ -27,10 +27,9 @@
 <script src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script>
 <script src="js/dest.js"></script>
 <script>
-var file = (document.location.search.match(/^\?src=.+\/(\d+)_.+$/) ||
-    [null, 3934476238])[1];
+var destsrc = document.location.search.match(/^\?src=.+\/(\d+)_.+$/);
 
-fetchLocation(file);
+fetchLocation((destsrc || [null, 3934476238])[1]);
 </script>
 </body>
 </html>
