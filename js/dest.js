@@ -7,7 +7,7 @@ function getThumbs(pics) {
     }
 
     YUI().use('yql', function (Y) {
-        var qry = 'select source from flickr.photos.sizes where photo_id in (select id from flickr.photos.search(1) where woe_id in (select woeid from geo.places(1) where text in ("Amsterdam","Antigua","Athens","Atlanta","Bangkok","Barcelona","Beijing","Belize City","Bermuda","Berlin","Boston","Brussels","Budapest","Buenos Aires","Busan","Cabo San Lucas","Cancun","Copenhagen","Dubai","Dusseldorf","Frankfurt","Freeport","Guam","Guayaquil","Hong Kong","Honolulu","Istanbul","Johannesburg","Kingston","Lagos","London","Las Vegas","Los Angeles","Madrid","Malaga","Managua","Manchester","Manila","Miami","Milan","Minneapolis","Mumbai","Nagoya","Nassau Bahamas","New York","Nice","Osaka","Koror Palau","Paris","Pisa","Port of Spain","Portland","Prague","Quito","Rio de Janeiro","Rome","Saipan","Salt Lake City","San Diego","San Francisco","San Jose","San Juan","San Pedro Sula","San Salvador","Santiago","Santo Domingo","Sao Paulo","Seattle","Seoul","Shanghai","Shannon","Singapore Singapore","Stockholm","Sydney","Taipei","Tel Aviv","Tokyo","Grand Turk","Venice","Washington DC","Zurich")) and sort=@sort and min_taken_date=@mindate and api_key=@apikey) and api_key=@apikey and label=@label',
+        var qry = 'select source from flickr.photos.sizes where photo_id in (select id from flickr.photos.search(1) where woe_id in (select woeid from geo.places(1) where text in ("Amsterdam","Antigua","Athens","Atlanta","Bangkok","Barcelona","Beijing","Belize City","Berlin","Boston","Budapest","Buenos Aires","Busan","Cabo San Lucas","Cancun","Copenhagen","Dubai","Dusseldorf","Frankfurt","Freeport","Guam","Guayaquil","Hong Kong","Honolulu","Istanbul","Johannesburg","Kingston","Lagos","London","Las Vegas","Los Angeles","Madrid","Malaga","Managua","Manchester","Manila","Miami","Milan","Minneapolis","Mumbai","Nagoya","Nassau Bahamas","New York","Nice","Osaka","Koror Palau","Paris","Pisa","Port of Spain","Portland","Prague","Quito","Rio de Janeiro","Rome","Saipan","Salt Lake City","San Diego","San Francisco","San Jose","San Juan","San Pedro Sula","San Salvador","Santiago","Santo Domingo","Sao Paulo","Seattle","Seoul","Shanghai","Shannon","Singapore Singapore","Stockholm","Sydney","Taipei","Tel Aviv","Tokyo","Grand Turk","Venice","Washington DC","Zurich")) and sort=@sort and min_taken_date=@mindate and api_key=@apikey) and api_key=@apikey and label=@label',
             param = {
                 apikey: '5b7b21a3d44ed659e13410edee783a3b',
                 label: 'Medium',
@@ -32,7 +32,7 @@ function renderThumbs(pics) {
             out = hand({squares: pics});
 
         Y.one('#thumbs').setHTML(out);
-        Y.one('div.foo').set('innerHTML', '<img src="' + pics[3].source + '">');
+        Y.one('div.foo').set('innerHTML', '<img src="' + pics[1].source + '">');
         //Y.one('div.foo p').set('innerHTML', 'Select a picture');
     });
 }
